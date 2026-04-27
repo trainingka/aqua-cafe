@@ -121,49 +121,7 @@
           },
         }
     </script>
-<div id="reserveModal" class="fixed inset-0 bg-[#0f172a]/90 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="glass-card p-8 w-full max-w-md relative border border-cyan-500/30 rounded-xl">
-        <button onclick="closeReserve()" class="absolute top-4 right-4 text-gray-400 hover:text-cyan-400 transition-colors">
-            <span class="material-symbols-outlined">close</span>
-        </button>
-        
-        <h3 class="text-2xl font-bold text-white mb-6 tracking-wider text-center">BOOK YOUR DIVE</h3>
-        
-        <form class="space-y-4 text-sm" onsubmit="event.preventDefault(); submitReserve();">
-            <div>
-                <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Name</label>
-                <input type="text" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Date</label>
-                    <input type="date" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
-                </div>
-                <div>
-                    <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Time</label>
-                    <input type="time" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
-                </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Quantity (Pax)</label>
-                    <input type="number" min="1" max="20" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500" placeholder="E.g. 2">
-                </div>
-                <div>
-                    <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Experience</label>
-                    <select class="w-full bg-[#0f172a] border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
-                        <option>Ocean Panorama</option>
-                        <option>Tranquil Water</option>
-                        <option>Glacial Chamber</option>
-                    </select>
-                </div>
-            </div>
-            <button type="submit" class="w-full mt-6 bg-cyan-600/80 hover:bg-cyan-500 text-white font-bold py-3 rounded border border-cyan-400/50 transition-all uppercase tracking-widest text-sm">Confirm Reservation</button>
-        </form>
-    </div>
-</div>
-</script>
-<head>
+</head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden">
 <!-- TopNavBar -->
 <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl rounded-full border border-cyan-100/10 bg-slate-950/20 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,27,46,0.5)] flex justify-between items-center px-10 py-4 z-50 transition-all duration-500">
@@ -594,4 +552,45 @@ function submitReserve() {
     closeReserve();
 }
 </script>
+<div id="reserveModal" class="fixed inset-0 bg-[#0f172a]/90 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="glass-card p-8 w-full max-w-md relative border border-cyan-500/30 rounded-xl">
+        <button onclick="closeReserve()" class="absolute top-4 right-4 text-gray-400 hover:text-cyan-400 transition-colors">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        
+        <h3 class="text-2xl font-bold text-white mb-6 tracking-wider text-center">BOOK YOUR DIVE</h3>
+        
+        <form class="space-y-4 text-sm" onsubmit="event.preventDefault(); submitReserve();">
+            <div>
+                <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Name</label>
+                <input type="text" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Date</label>
+                    <input type="date" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
+                </div>
+                <div>
+                    <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Time</label>
+                    <input type="time" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Quantity (Pax)</label>
+                    <input type="number" min="1" max="20" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500" placeholder="E.g. 2">
+                </div>
+                <div>
+                    <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Experience</label>
+                    <select class="w-full bg-[#0f172a] border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
+                        <option>Ocean Panorama</option>
+                        <option>Tranquil Water</option>
+                        <option>Glacial Chamber</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="w-full mt-6 bg-cyan-600/80 hover:bg-cyan-500 text-white font-bold py-3 rounded border border-cyan-400/50 transition-all uppercase tracking-widest text-sm">Confirm Reservation</button>
+        </form>
+    </div>
+</div>
 </body></html>
