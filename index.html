@@ -548,9 +548,13 @@ function closeReserve() {
     document.getElementById('reserveModal').classList.add('hidden');
 }
 function submitReserve() {
-    alert('Thank you! Your reservation has been successfully placed. We will contact you shortly.');
     closeReserve();
-}
+    document.getElementById('successModal').classList.remove('hidden');
+  }
+
+  function closeSuccess() {
+    document.getElementById('successModal').classList.add('hidden');
+  }
 </script>
 <div id="reserveModal" class="fixed inset-0 bg-[#0f172a]/90 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="glass-card p-8 w-full max-w-md relative border border-cyan-500/30 rounded-xl">
@@ -591,6 +595,18 @@ function submitReserve() {
             </div>
             <button type="submit" class="w-full mt-6 bg-cyan-600/80 hover:bg-cyan-500 text-white font-bold py-3 rounded border border-cyan-400/50 transition-all uppercase tracking-widest text-sm">Confirm Reservation</button>
         </form>
+    </div>
+</div>
+<div id="successModal" class="fixed inset-0 bg-[#0f172a]/90 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="glass-card p-8 w-full max-w-sm relative border border-cyan-500/30 rounded-xl text-center shadow-2xl shadow-cyan-900/20">
+        <div class="w-16 h-16 rounded-full bg-cyan-500/10 border border-cyan-400 mx-auto flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-cyan-400 text-3xl">check_circle</span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2 tracking-wider">BOOKING CONFIRMED</h3>
+        <p class="text-gray-400 text-sm mb-6 leading-relaxed">Thank you! Your underwater experience has been secured. We will contact you shortly with the details.</p>
+        <button onclick="closeSuccess()" class="w-full bg-[#0f172a] hover:bg-cyan-900 text-cyan-400 font-bold py-3 rounded border border-cyan-500/50 transition-all uppercase tracking-widest text-sm">
+            AWESOME
+        </button>
     </div>
 </div>
 </body></html>
