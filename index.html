@@ -120,7 +120,48 @@
             },
           },
         }
-    </script>
+<div id="reserveModal" class="fixed inset-0 bg-[#0f172a]/90 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="glass-card p-8 w-full max-w-md relative border border-cyan-500/30 rounded-xl">
+        <button onclick="closeReserve()" class="absolute top-4 right-4 text-gray-400 hover:text-cyan-400 transition-colors">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        
+        <h3 class="text-2xl font-bold text-white mb-6 tracking-wider text-center">BOOK YOUR DIVE</h3>
+        
+        <form class="space-y-4 text-sm" onsubmit="event.preventDefault(); submitReserve();">
+            <div>
+                <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Name</label>
+                <input type="text" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Date</label>
+                    <input type="date" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
+                </div>
+                <div>
+                    <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Time</label>
+                    <input type="time" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Quantity (Pax)</label>
+                    <input type="number" min="1" max="20" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500" placeholder="E.g. 2">
+                </div>
+                <div>
+                    <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Experience</label>
+                    <select class="w-full bg-[#0f172a] border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
+                        <option>Ocean Panorama</option>
+                        <option>Tranquil Water</option>
+                        <option>Glacial Chamber</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="w-full mt-6 bg-cyan-600/80 hover:bg-cyan-500 text-white font-bold py-3 rounded border border-cyan-400/50 transition-all uppercase tracking-widest text-sm">Confirm Reservation</button>
+        </form>
+    </div>
+</div>
+<script>
 </head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden">
 <!-- TopNavBar -->
@@ -137,7 +178,7 @@
 <button id="theme-toggle" class="bg-white/5 border border-cyan-100/20 px-4 py-2 rounded-full font-label-caps text-xs text-cyan-400 uppercase tracking-widest hover:bg-cyan-400/10 hover:border-cyan-400/40 transition-all duration-300 active:scale-95">
     Light
 </button>
-<button class="bg-white/5 border border-cyan-100/20 px-6 py-2 rounded-full font-label-caps text-xs text-cyan-400 uppercase tracking-widest hover:bg-cyan-400/10 hover:border-cyan-400/40 transition-all duration-300 active:scale-95">
+<button onclick="openReserve()" class="bg-white/5 border border-cyan-100/20 px-6 py-2 rounded-full font-label-caps text-xs text-cyan-400 uppercase tracking-widest hover:bg-cyan-400/10 hover:border-cyan-400/40 transition-all duration-300 active:scale-95">
             Reserve Table
         </button>
 </nav>
@@ -246,7 +287,7 @@
                     Front-row seats to the underwater world. An exclusive table right next to the glacial crystal walls for the most immersive marine experience.
                 </p>
 <p class="text-white font-bold mb-4">Minimum Spend: RM 150.00</p>
-<button class="border border-white/30 px-6 py-2 rounded-full font-label-caps text-xs text-white/80 uppercase tracking-widest hover:bg-white/10 hover:border-secondary hover:text-secondary transition-all duration-300">
+<button onclick="openReserve()" class="border border-white/30 px-6 py-2 rounded-full font-label-caps text-xs text-white/80 uppercase tracking-widest hover:bg-white/10 hover:border-secondary hover:text-secondary transition-all duration-300">
                     Select
                 </button>
 </div>
@@ -260,7 +301,7 @@
                     A calm and balanced atmosphere. Perfect for enjoying the soft, ambient blue glow of the ocean while having a relaxing conversation.
                 </p>
 <p class="text-white font-bold mb-4">Minimum Spend: RM 90.00</p>
-<button class="border border-white/30 px-6 py-2 rounded-full font-label-caps text-xs text-white/80 uppercase tracking-widest hover:bg-white/10 hover:border-secondary hover:text-secondary transition-all duration-300">
+<button onclick="openReserve()" class="border border-white/30 px-6 py-2 rounded-full font-label-caps text-xs text-white/80 uppercase tracking-widest hover:bg-white/10 hover:border-secondary hover:text-secondary transition-all duration-300">
                     Select
                 </button>
 </div>
@@ -274,7 +315,7 @@
                     A quiet, dim, and private sanctuary. The perfect choice for maximum serenity and coziness at an exceptional value.
                 </p>
 <p class="text-white font-bold mb-4">Minimum Spend: RM 45.00</p>
-<button class="border border-white/30 px-6 py-2 rounded-full font-label-caps text-xs text-white/80 uppercase tracking-widest hover:bg-white/10 hover:border-secondary hover:text-secondary transition-all duration-300">
+<button onclick="openReserve()" class="border border-white/30 px-6 py-2 rounded-full font-label-caps text-xs text-white/80 uppercase tracking-widest hover:bg-white/10 hover:border-secondary hover:text-secondary transition-all duration-300">
                     Select
                 </button>
 </div>
@@ -540,5 +581,16 @@ window.addEventListener('scroll', () => {
     btns[category].classList.add('border-cyan-500', 'text-cyan-400');
     btns[category].classList.remove('border-white/10', 'text-gray-400');
   }
+
+function openReserve() {
+    document.getElementById('reserveModal').classList.remove('hidden');
+}
+function closeReserve() {
+    document.getElementById('reserveModal').classList.add('hidden');
+}
+function submitReserve() {
+    alert('Thank you! Your reservation has been successfully placed. We will contact you shortly.');
+    closeReserve();
+}
 </script>
 </body></html>
