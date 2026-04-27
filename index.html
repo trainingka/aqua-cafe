@@ -288,13 +288,13 @@
 <h2 class="font-headline-lg text-white uppercase mt-2">The Cold & The Craft</h2>
 </div>
 <div class="flex gap-4">
-<span class="px-4 py-2 glass-card rounded-full text-xs font-label-caps text-cyan-400">Coffee</span>
-<span class="px-4 py-2 border border-white/5 rounded-full text-xs font-label-caps text-white/40">Pastries</span>
+<span id="btn-coffee" onclick="filterMenu('coffee')" class="px-4 py-2 glass-card rounded-full text-xs font-label-caps text-cyan-400 cursor-pointer hover:bg-white/10">Coffee</span>
+<span id="btn-pastry" onclick="filterMenu('pastry')" class="px-4 py-2 border border-white/5 rounded-full text-xs font-label-caps text-white/40 cursor-pointer hover:border-white/30">Pastries</span>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 <!-- Menu Item 1 -->
-<div class="glass-card p-0 group overflow-hidden">
+<div class="glass-card p-0 group overflow-hidden menu-item" data-category="coffee">
 <img alt="Glacier Cold Brew" class="w-full h-48 object-cover rounded-t-lg mb-0" src="aquaimage.png"/>
 <div class="p-10 pt-6">
 <div class="flex justify-between items-start mb-6">
@@ -312,7 +312,7 @@
 </div>
 </div>
 <!-- Menu Item 2 -->
-<div class="glass-card p-0 group overflow-hidden relative">
+<div class="glass-card p-0 group overflow-hidden relative menu-item" data-category="coffee">
 <div class="absolute top-0 right-0 p-4 z-10">
 <span class="font-label-caps text-[10px] text-secondary bg-secondary/10 px-2 py-1 rounded">SIGNATURE</span>
 </div>
@@ -333,7 +333,7 @@
 </div>
 </div>
 <!-- Menu Item 3 -->
-<div class="glass-card p-0 group overflow-hidden">
+<div class="glass-card p-0 group overflow-hidden menu-item" data-category="coffee">
 <img alt="Northern Lights Latte" class="w-full h-48 object-cover rounded-t-lg mb-0" src="aquaimage.png"/>
 <div class="p-10 pt-6">
 <div class="flex justify-between items-start mb-6">
@@ -351,7 +351,7 @@
 </div>
 </div>
 <!-- Menu Item 4 -->
-<div class="glass-card p-0 group overflow-hidden">
+<div class="glass-card p-0 group overflow-hidden menu-item hidden" data-category="pastry">
 <img alt="Snowdrift Croissant" class="w-full h-48 object-cover rounded-t-lg mb-0" src="aquaimage.png"/>
 <div class="p-10 pt-6">
 <div class="flex justify-between items-start mb-6">
@@ -369,7 +369,7 @@
 </div>
 </div>
 <!-- Menu Item 5 -->
-<div class="glass-card p-0 group overflow-hidden">
+<div class="glass-card p-0 group overflow-hidden menu-item hidden" data-category="pastry">
 <img alt="Penguin Pastry" class="w-full h-48 object-cover rounded-t-lg mb-0" src="aquaimage.png"/>
 <div class="p-10 pt-6">
 <div class="flex justify-between items-start mb-6">
@@ -387,7 +387,7 @@
 </div>
 </div>
 <!-- Menu Item 6 -->
-<div class="glass-card p-0 group overflow-hidden">
+<div class="glass-card p-0 group overflow-hidden menu-item hidden" data-category="pastry">
 <img alt="Glacial Berry Tart" class="w-full h-48 object-cover rounded-t-lg mb-0" src="aquaimage.png"/>
 <div class="p-10 pt-6">
 <div class="flex justify-between items-start mb-6">
@@ -405,7 +405,7 @@
 </div>
 </div>
 <!-- Menu Item 7 -->
-<div class="glass-card p-0 group overflow-hidden">
+<div class="glass-card p-0 group overflow-hidden menu-item" data-category="coffee">
 <img alt="Glacial Float" class="w-full h-48 object-cover rounded-t-lg mb-0" src="aquaimage.png"/>
 <div class="p-10 pt-6">
 <div class="flex justify-between items-start mb-6">
@@ -423,7 +423,7 @@
 </div>
 </div>
 <!-- Menu Item 8 -->
-<div class="glass-card p-0 group overflow-hidden">
+<div class="glass-card p-0 group overflow-hidden menu-item hidden" data-category="pastry">
 <img alt="Aurora Cake" class="w-full h-48 object-cover rounded-t-lg mb-0" src="aquaimage.png"/>
 <div class="p-10 pt-6">
 <div class="flex justify-between items-start mb-6">
@@ -441,7 +441,7 @@
 </div>
 </div>
 <!-- Menu Item 9 -->
-<div class="glass-card p-0 group overflow-hidden">
+<div class="glass-card p-0 group overflow-hidden menu-item hidden" data-category="pastry">
 <img alt="Arctic Tart" class="w-full h-48 object-cover rounded-t-lg mb-0" src="aquaimage.png"/>
 <div class="p-10 pt-6">
 <div class="flex justify-between items-start mb-6">
@@ -539,5 +539,32 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+</script>
+<script>
+  function filterMenu(category) {
+    const items = document.querySelectorAll('.menu-item');
+    items.forEach(item => {
+      if(item.getAttribute('data-category') === category) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+    
+    const btnCoffee = document.getElementById('btn-coffee');
+    const btnPastry = document.getElementById('btn-pastry');
+    
+    if(category === 'coffee') {
+      btnCoffee.classList.add('border-cyan-500', 'text-cyan-400');
+      btnCoffee.classList.remove('border-white/10', 'text-gray-400');
+      btnPastry.classList.remove('border-cyan-500', 'text-cyan-400');
+      btnPastry.classList.add('border-white/10', 'text-gray-400');
+    } else {
+      btnPastry.classList.add('border-cyan-500', 'text-cyan-400');
+      btnPastry.classList.remove('border-white/10', 'text-gray-400');
+      btnCoffee.classList.remove('border-cyan-500', 'text-cyan-400');
+      btnCoffee.classList.add('border-white/10', 'text-gray-400');
+    }
+  }
 </script>
 </body></html>
