@@ -288,7 +288,8 @@
 <h2 class="font-headline-lg text-white uppercase mt-2">The Cold & The Craft</h2>
 </div>
 <div class="flex gap-4">
-<span id="btn-coffee" onclick="filterMenu('coffee')" class="px-4 py-2 glass-card rounded-full text-xs font-label-caps text-cyan-400 cursor-pointer hover:bg-white/10">Coffee</span>
+<span id="btn-all" onclick="filterMenu('all')" class="px-4 py-2 glass-card rounded-full text-xs font-label-caps text-cyan-400 cursor-pointer hover:bg-white/10">All</span>
+<span id="btn-coffee" onclick="filterMenu('coffee')" class="px-4 py-2 border border-white/5 rounded-full text-xs font-label-caps text-white/40 cursor-pointer hover:border-white/30">Coffee</span>
 <span id="btn-pastry" onclick="filterMenu('pastry')" class="px-4 py-2 border border-white/5 rounded-full text-xs font-label-caps text-white/40 cursor-pointer hover:border-white/30">Pastries</span>
 </div>
 </div>
@@ -351,7 +352,7 @@
 </div>
 </div>
 <!-- Menu Item 4 -->
-<div class="glass-card p-0 group overflow-hidden menu-item hidden" data-category="pastry">
+<div class="glass-card p-0 group overflow-hidden menu-item" data-category="pastry">
 <img alt="Snowdrift Croissant" class="w-full h-48 object-cover rounded-t-lg mb-0" src="aquaimage.png"/>
 <div class="p-10 pt-6">
 <div class="flex justify-between items-start mb-6">
@@ -369,7 +370,7 @@
 </div>
 </div>
 <!-- Menu Item 5 -->
-<div class="glass-card p-0 group overflow-hidden menu-item hidden" data-category="pastry">
+<div class="glass-card p-0 group overflow-hidden menu-item" data-category="pastry">
 <img alt="Penguin Pastry" class="w-full h-48 object-cover rounded-t-lg mb-0" src="aquaimage.png"/>
 <div class="p-10 pt-6">
 <div class="flex justify-between items-start mb-6">
@@ -387,7 +388,7 @@
 </div>
 </div>
 <!-- Menu Item 6 -->
-<div class="glass-card p-0 group overflow-hidden menu-item hidden" data-category="pastry">
+<div class="glass-card p-0 group overflow-hidden menu-item" data-category="pastry">
 <img alt="Glacial Berry Tart" class="w-full h-48 object-cover rounded-t-lg mb-0" src="aquaimage.png"/>
 <div class="p-10 pt-6">
 <div class="flex justify-between items-start mb-6">
@@ -423,7 +424,7 @@
 </div>
 </div>
 <!-- Menu Item 8 -->
-<div class="glass-card p-0 group overflow-hidden menu-item hidden" data-category="pastry">
+<div class="glass-card p-0 group overflow-hidden menu-item" data-category="pastry">
 <img alt="Aurora Cake" class="w-full h-48 object-cover rounded-t-lg mb-0" src="aquaimage.png"/>
 <div class="p-10 pt-6">
 <div class="flex justify-between items-start mb-6">
@@ -441,7 +442,7 @@
 </div>
 </div>
 <!-- Menu Item 9 -->
-<div class="glass-card p-0 group overflow-hidden menu-item hidden" data-category="pastry">
+<div class="glass-card p-0 group overflow-hidden menu-item" data-category="pastry">
 <img alt="Arctic Tart" class="w-full h-48 object-cover rounded-t-lg mb-0" src="aquaimage.png"/>
 <div class="p-10 pt-6">
 <div class="flex justify-between items-start mb-6">
@@ -543,28 +544,32 @@ window.addEventListener('scroll', () => {
 <script>
   function filterMenu(category) {
     const items = document.querySelectorAll('.menu-item');
+    
+    // Filter item
     items.forEach(item => {
-      if(item.getAttribute('data-category') === category) {
+      if (category === 'all' || item.getAttribute('data-category') === category) {
         item.classList.remove('hidden');
       } else {
         item.classList.add('hidden');
       }
     });
     
-    const btnCoffee = document.getElementById('btn-coffee');
-    const btnPastry = document.getElementById('btn-pastry');
+    // Update gaya butang
+    const btns = {
+      'all': document.getElementById('btn-all'),
+      'coffee': document.getElementById('btn-coffee'),
+      'pastry': document.getElementById('btn-pastry')
+    };
     
-    if(category === 'coffee') {
-      btnCoffee.classList.add('border-cyan-500', 'text-cyan-400');
-      btnCoffee.classList.remove('border-white/10', 'text-gray-400');
-      btnPastry.classList.remove('border-cyan-500', 'text-cyan-400');
-      btnPastry.classList.add('border-white/10', 'text-gray-400');
-    } else {
-      btnPastry.classList.add('border-cyan-500', 'text-cyan-400');
-      btnPastry.classList.remove('border-white/10', 'text-gray-400');
-      btnCoffee.classList.remove('border-cyan-500', 'text-cyan-400');
-      btnCoffee.classList.add('border-white/10', 'text-gray-400');
-    }
+    // Reset semua butang ke warna pasif
+    Object.values(btns).forEach(btn => {
+      btn.classList.remove('border-cyan-500', 'text-cyan-400');
+      btn.classList.add('border-white/10', 'text-gray-400');
+    });
+    
+    // Set warna aktif pada butang yang ditekan
+    btns[category].classList.add('border-cyan-500', 'text-cyan-400');
+    btns[category].classList.remove('border-white/10', 'text-gray-400');
   }
 </script>
 </body></html>
