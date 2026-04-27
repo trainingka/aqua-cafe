@@ -127,7 +127,7 @@
 <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl rounded-full border border-cyan-100/10 bg-slate-950/20 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,27,46,0.5)] flex justify-between items-center px-10 py-4 z-50 transition-all duration-500">
 <div class="text-2xl font-light text-white tracking-[0.3em] uppercase font-headline-md">Aqua Cafe</div>
 <div class="hidden md:flex gap-12">
-<a class="nav-link font-label-caps text-sm uppercase text-cyan-400 border-b border-cyan-400/50 pb-1 hover:text-white hover:bg-white/5 transition-all duration-500" href="#vibe">The Vibe</a>
+<a class="nav-link font-label-caps text-sm uppercase text-white/60 hover:text-white hover:bg-white/5 transition-all duration-500" href="#vibe">The Vibe</a>
 <a class="nav-link font-label-caps text-sm uppercase text-white/60 hover:text-white hover:bg-white/5 transition-all duration-500" href="#menu">Menu</a>
 <a class="nav-link font-label-caps text-sm uppercase text-white/60 hover:text-white hover:bg-white/5 transition-all duration-500" href="#location">Location</a>
 </div>
@@ -313,10 +313,10 @@ window.addEventListener('scroll', () => {
         }
     });
     navLinks.forEach(link => {
-        link.classList.remove('text-cyan-400', 'border-cyan-400/50');
+        link.classList.remove('text-cyan-400');
         link.classList.add('text-white/60');
         if (link.getAttribute('href') === '#' + current) {
-            link.classList.add('text-cyan-400', 'border-cyan-400/50');
+            link.classList.add('text-cyan-400');
             link.classList.remove('text-white/60');
         }
     });
