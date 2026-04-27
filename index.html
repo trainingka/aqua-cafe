@@ -29,6 +29,9 @@
         html.light .glass-card { background: rgba(255,255,255,0.9) !important; border-color: #e2e8f0 !important; }
         html.light .glass-card h3, html.light .glass-card h4, html.light .glass-card p { color: #0f172a !important; }
         html.light .glass-card .text-gray-300, html.light .glass-card .text-gray-400 { color: #475569 !important; }
+        html.light input, html.light select { background: #f8fafc !important; color: #0f172a !important; border-color: #e2e8f0 !important; }
+        html.light input::placeholder { color: #94a3b8 !important; }
+        html.light option { background: #fff !important; color: #0f172a !important; }
         html.light footer { background: transparent !important; }
         html.light footer h3 { color: #0f172a !important; }
         html.light footer .text-white { color: #0f172a !important; }
@@ -578,26 +581,26 @@ function submitReserve() {
         <form class="space-y-4 text-sm" onsubmit="event.preventDefault(); submitReserve();">
             <div>
                 <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Name</label>
-                <input type="text" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
+                <input type="text" required class="w-full bg-white dark:bg-[#0f172a]/50 border border-gray-300 dark:border-white/10 rounded px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-500">
             </div>
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Date</label>
-                    <input type="date" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
+                    <input type="date" required class="w-full bg-white dark:bg-[#0f172a]/50 border border-gray-300 dark:border-white/10 rounded px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-500">
                 </div>
                 <div>
                     <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Time</label>
-                    <input type="time" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
+                    <input type="time" required class="w-full bg-white dark:bg-[#0f172a]/50 border border-gray-300 dark:border-white/10 rounded px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-500">
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Quantity (Pax)</label>
-                    <input type="number" min="1" max="20" required class="w-full bg-[#0f172a]/50 border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500" placeholder="E.g. 2">
+                    <input type="number" min="1" max="20" required class="w-full bg-white dark:bg-[#0f172a]/50 border border-gray-300 dark:border-white/10 rounded px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-500" placeholder="E.g. 2">
                 </div>
                 <div>
                     <label class="block text-cyan-400 mb-1 text-xs uppercase tracking-wider">Experience</label>
-                    <select class="w-full bg-[#0f172a] border border-white/10 rounded px-4 py-2 text-white focus:outline-none focus:border-cyan-500">
+                    <select class="w-full bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-white/10 rounded px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-500">
 <option>Window View (Min Spend: RM 150.00)</option>
 <option>The Blue Lagoon (Min Spend: RM 90.00)</option>
 <option>The Ice Cave (Min Spend: RM 45.00)</option>
